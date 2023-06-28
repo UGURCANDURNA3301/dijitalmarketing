@@ -146,6 +146,10 @@ body {
   line-height: 1.8;
 }
 
+body.nav-active {
+  overflow: hidden;
+}
+
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
@@ -191,6 +195,7 @@ body {
 .nav-open-btn .menu-icon,
 .nav-open-btn.active .close-icon {
   display: block;
+  color: var(--bg-dark-purple);
 }
 
 .navbar {
