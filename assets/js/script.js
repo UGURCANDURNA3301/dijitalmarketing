@@ -7,7 +7,7 @@ const addEventOnElement = function (elements, eveType, callback) {
 };
 //**navbar togglle for mobile */
 const navbar = document.querySelector("[data-navbar]");
-const navToggleBtn = document.querySelectorAll("[data-nav-toggle-btn]");
+const navToggleBtn = document.querySelector("[data-nav-toggle-btn]");
 const overlay = document.querySelector("[data-overlay]");
 
 const toggleNavbar = function () {
@@ -18,3 +18,25 @@ const toggleNavbar = function () {
 };
 
 addEventOnElement([navToggleBtn, overlay], "click", toggleNavbar);
+
+/**parallax efect */
+
+const parallaxElements = document.querySelectorAll("[data parallax]");
+
+window.addEventListener("mousemove", (event) => {
+  for (let i = 0, len = parallaxElements.length; i < len; i++) {
+    const movementX =
+      (event.clientX / window.innerWidth) *
+      Number(parallaxElements[i].dataset.parallaxSpeed);
+    const movementY =
+      (event.clientY / window.innerHeight) *
+      Number(parallaxElements[i].dataset.parallaxSpeed);
+
+    parallaxElements[i].animate(
+      {
+        transform: "translate(${movementX}px, ${movementY}px",
+      },
+      { duration: 500, fill: "forwards" }
+    );
+  }
+});
